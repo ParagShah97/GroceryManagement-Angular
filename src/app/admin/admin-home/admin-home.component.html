@@ -1,0 +1,38 @@
+<hr>
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0"  >Storage Status</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/products" routerLinkActive="true" >Products</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" >Sells</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" >Profit</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" >Exhaust</a>
+</nav>
+
+<div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Total Quantity</th>
+                    <th>Cost PerPiece</th>
+                    <th>Total Cost</th>
+                    <th>Minimum Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+               <ng-container *ngFor="let st of storage">
+                    <tr>
+                        <td>{{st.id}}</td>
+                        <td>{{st.name}}</td>
+                        <td>{{st.totalQuantity}}</td>
+                        <td>{{st.productCost}}</td>
+                        <td>{{st.totalCost}}</td>
+                        <td>{{st.minQuantity}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,93 @@
+  <br>
+  <div *ngIf="isSearchResultNull" >
+    <div class="d-flex justify-content-center">
+      <img src="./../../assets/storage/empty-cart.png" class="img-fluid" alt="">
+    </div>    
+    <div class="d-flex justify-content-center">
+    <h3 class="text-center">Product Not found! <br> Hungry? We have lots of other options</h3>
+    </div>
+    <hr>
+  </div>
+
+
+
+  <div *ngIf="!isSearchResultNull" class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-6 shadow-sm">
+        
+        <div class="card-body">
+          <img src="./../../assets/storage/{{productSearchedData.imgSrc}}" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="card mb-6 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">{{productSearchedData.name}}</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">Rs:{{productSearchedData.productCost}} <small class="text-muted">/ {{productSearchedData.quantity}} {{productSearchedData.scale}}</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><h5>{{productSearchedData.category}}</h5></li>
+            <li class="d-flex justify-content-center" ><span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="quantity" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{productSearchedData.productCost*quantity}}"  disabled ngModel></span> </li>
+            
+            </ul>
+            <div class="card-body">
+              <input type="button" class="btn btn-success" value="Add to Cart" (click)="addToCart()"><br>
+              <small *ngIf="isError" class="text-danger">Please enter a proper quantity between 1 to 10 picks or choose suitable product!</small>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+
+    
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" src="../../../assets/client-side-img/fp1.jpg" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Fresh Fruits for healthy life</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/fruits" routerLinkActive="true" >Fruits</a>
+              
+            </div>
+            <small class="text-muted">Fruits</small>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="../../../assets/client-side-img/vp1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Fresh Vegetable for immune body.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/vegetables" routerLinkActive="true" >Vegetables</a>
+                
+              </div>
+              <small class="text-muted">Vegetables</small>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="../../../assets/client-side-img/dp1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Milk And Milk products.</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/dairyProducts" routerLinkActive="true" >Milk Products</a>
+                    
+                  </div>
+                  <small class="text-muted">Milk Products</small>
+                </div>
+              </div>
+            </div>
+            </div>
+    </div>
+

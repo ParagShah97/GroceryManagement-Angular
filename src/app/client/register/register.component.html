@@ -1,0 +1,74 @@
+<div>
+    <h2 class="text-center">Register</h2>
+    <div class="container">
+        <form class="form-horizontal" id="addFormData" #registerForm="ngForm" (ngSubmit)="addRegisterData(registerForm)" novalidate>
+            <fieldset>
+
+                <!-- Form Name --> 
+                <legend>User</legend>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="firstName" name="firstName" placeholder="First Name" class="form-control input-md" required="" type="text" ngModel>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="lastName" name="lastName" placeholder="Last Name" class="form-control input-md" required="" type="text" ngModel>
+
+                    </div>
+                </div>
+
+                <div class="row form-group ">
+                    
+                    <div class="col-md-12">
+                        <input id="emailId" name="emailId" placeholder="Valid EmailId" class="form-control input-md" required="" type="email" ngModel>
+
+                    </div>
+                </div>
+
+                <div class="row form-group ">
+                    
+                    <div class="col-md-6">
+                        <input id="password" name="password" placeholder="Password" class="form-control input-md" required="" type="password" ngModel>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="form-control input-md " required="" type="password" ngModel>
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="contact" name="contact" placeholder="Contact Number" class="form-control input-md" required type="text" ngModel>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input id="optionalContact" name="optionalContact" placeholder="Another Contact Number optional" class="form-control input-md" type="text" ngModel>
+                    </div>
+
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <textarea class="form-control" placeholder="Address here..." rows="5" id="address" name="address" ngModel></textarea>    
+                    </div>
+                </div> 
+
+                <div >
+                    <input type="submit" class='btn btn-primary my-2 my-sm-0 pull-right' value="Submit" >                   
+                
+                </div>
+                <hr>
+                <div *ngIf="isSuccess" id="successAlertDiv"  >
+                    <div class="alert alert-success" role="alert" >
+                        {{success}} 
+                      </div>
+                    </div>
+                    <div *ngIf="isError" id="errorAlertDiv"  >
+                        <div class="alert alert-danger" role="alert" >
+                            {{error}} 
+                          </div>
+                        </div>
+                      
+            </fieldset>
+        </form>
+        
+    </div>
+</div>

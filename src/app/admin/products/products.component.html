@@ -1,0 +1,258 @@
+<hr>
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/adminHome" routerLinkActive="active">Storage Status</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/products" routerLinkActive="true">Products</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sells</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Profit</a>
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Exhaust</a>
+</nav>
+
+
+
+
+<!-- <nav class="navbar navbar-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand btn navbar-brand col-sm-3 col-md-2 mr-0 btn-success" (click)=addProduct() >Add Product</a>
+    <a class="navbar-brand btn navbar-brand col-sm-3 col-md-2 mr-0 btn-success" (click)=deleteProduct() >Delete Product</a>
+    <a class="navbar-brand btn navbar-brand col-sm-3 col-md-2 mr-0 btn-success" (click)=listProduct() >List All Product</a>
+</nav> -->
+<hr>
+<div class="row">
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Add any product with name and quantity, for your retail. Owners are requested to add authentic details for better customer review and profit.</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-success" (click)=addProduct()>Add Product</button>
+              
+            </div>
+            <small class="text-muted">admin</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Delete any product with name and categoty. You can customize your retail data, and have the freedom to choose what to sell waht not to, with easy access.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-success" (click)=deleteProduct()>DeleteProduct</button>
+                
+              </div>
+              <small class="text-muted">admin</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">List of all your products for better visualization of your retail market place. List would be updated after your any update to product.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-success" (click)=listProduct()>List Product</button>
+                
+              </div>
+              <small class="text-muted">admin</small>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+    </div>
+    <hr>
+<div *ngIf="addIsSelected">
+    <h3><strong>Add Product Form</strong></h3>
+    <div class="container">
+        <form class="form-horizontal" id="addFormData" #AddProductForm="ngForm" (ngSubmit)="addProductData(AddProductForm)" >
+            <div>
+                <small>Fields marked with <span style="color: red;">*</span> are compulsory. </small>
+            </div>
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>PRODUCTS</legend>
+
+                
+                <!-- Text input-->
+                <!-- <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="id" name="id" placeholder="PRODUCT ID" class="form-control input-md" required type="text" disabled value="id" ngModel>
+                    </div>
+                </div> -->
+                <hr>
+                <!-- Text input-->
+                <div class="row form-group ">
+                    <div class="col-md-6">
+                        <input id="name" name="name" placeholder="PRODUCT NAME" class="form-control input-md" required type="text" ngModel>
+                        <small><span style="color: red;">*</span>  Enter Product Name </small>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="category" name="category" placeholder="PRODUCT CATEGORY" class="form-control input-md" required type="text" ngModel >
+                        <small><span style="color: red;">*</span>  Enter Product Category e.g: mango:Alphonso </small>
+                    </div>
+                    
+                </div>
+
+                <!-- Select Basic -->
+                <div class="row form-group ">
+                    <div class="col-md-6">
+                        <select id="type" name="type" class="form-control" ngModel required>
+                            <option value="" selected>---- Choose the Product type ----</option>
+            <option value="fruit">Fruits</option>
+            <option value="vegetable">Vegetables</option>
+            <option value="dairyProduct">Dairy Products</option>
+            </select>
+            <small><span style="color: red;">*</span>  Choose Product Type e.g: Milk Product/Fruits </small>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="scale" name="scale" class="form-control" ngModel required>
+                            <option value="" selected>---- Quantities in scale  ----</option>
+            <option value="kg">Kilogram (kg)</option>
+            <option value="gm">Grams (gm)</option>
+            <option value="l">Liters (L)</option>
+            <option value="ml">Milli Liters (ml)</option>
+            <option value="piece">Per Piece (Pc)</option>
+            <option value="dozen">Per Dozen (dz)</option>
+            </select>
+            <small><span style="color: red;">*</span>  Choose scale for your retail product e.g: xx grams for gralic </small>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="quantity" name="quantity" placeholder="QUANTITY TO SELL PER PIECE" class="form-control input-md" required type="number" ngModel>
+                        <small><span style="color: red;">*</span>  Enter Quantity in numeric character e.g: 100(gm) 10(kgs) 750(ml) </small>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="productCost" name="productCost" placeholder="PRODUCT COST" class="form-control input-md" required type="number" ngModel>
+                        <small><span style="color: red;">*</span>  Choose scale for your retail product e.g: xx grams for gralic </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Text input-->
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="totalQuantity" name="totalQuantity" placeholder="PRODUCT TOTAL QUANTITY IN STORE" class="form-control input-md" required type="number" ngModel>
+                        <small><span style="color: red;">*</span>  Total quantity of product stored on your place e.g: xx kgs/ xx liters/ xx pices of product. </small>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="totalCost" name="totalCost" placeholder="PRODUCT TOTAL COST" disabled class="form-control input-md"  required type="number"  ngModel>
+                        <small>  Total cost in accordance with total quantity. </small>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <input id="minQuantity" name="minQuantity" placeholder="MINIMUM QUANTITY (in kgs or liters)" class="form-control input-md" required type="number" ngModel>
+                        <small><span style="color: red;">*</span> Minimum Quantity e.g: when reached the product counts in Exhausting category.  </small>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Button -->
+                <div class="row form-group d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <input type="submit" id="submitButton"  class="btn btn-primary" value="Add">
+
+                    </div>
+                    <div class="col-md-4">
+                        <button type="reset" id="resetButton"  class="btn btn-primary">Reset</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <br><br>
+    </div>
+</div>
+
+<div *ngIf="deleteIsSelected">
+    <h3><strong>Delete Product Form</strong></h3>
+    <div class="container">
+        <form class="form-horizontal" id="DeleteProductForm" #DeleteProductForm="ngForm" (ngSubmit)="deleteProductData(DeleteProductForm)">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Delete Product</legend>
+
+                <!-- Text input-->
+                <div class="row form-group ">
+                    <div class="col-md-6">
+                        <input id="delName" name="delName" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text" ngModel>
+                        <small><span style="color: red;">*</span>  Enter the product name you want to remove e.g: carrot/cheese </small>
+                    </div>
+
+                </div>
+
+
+                <!-- Select Basic -->
+                <div class="row form-group ">
+                    <div class="col-md-6">
+                <select id="delType" name="delType" class="form-control" ngModel>
+                    <option value="">---- Choose the Product type ----</option>
+                    <option value="fruit">Fruits</option>
+                    <option value="vegetable">Vegetables</option>
+                    <option value="dairyProduct">Dairy Products</option>
+                </select>
+                <small><span style="color: red;">*</span>  Choose the type of your product e.g: vegetables/fruits </small>
+                    </div>
+                </div>
+                <div class="row form-group ">
+                    <div class="col-md-2">
+                        <button type="submit" id="delButton" name="delButton" class="btn btn-primary">Delete</button>
+
+                    </div>
+                    <div class="col-md-2">
+                        <button type="reset" id="delRest" name="delRest" class="btn btn-primary">Reset</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div *ngIf="listIsSelected"><strong>List</strong>
+    <div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Total Quantity</th>
+                        <th>Cost PerPiece</th>
+                        <th>Total Cost</th>
+                        <th>Minimum Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <ng-container *ngFor="let st of storage">
+                        <tr>
+                            <td>{{st.id}}</td>
+                            <td>{{st.name}}</td>
+                            <td>{{st.totalQuantity}}</td>
+                            <td>{{st.productCost}}</td>
+                            <td>{{st.totalCost}}</td>
+                            <td>{{st.minQuantity}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+
+</div>

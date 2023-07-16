@@ -1,0 +1,232 @@
+<div class="container" >
+    
+    <div class="row">
+ 
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-12">
+
+            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid" src="../../assets/G1-Main.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="../../assets/G2-Main.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="../../assets/G3-Main.jpg" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                </a>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" src="../../../assets/client-side-img/fp1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Fresh Fruits for healthy life</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/fruits" routerLinkActive="true" >Fruits</a>
+                          
+                        </div>
+                        <small class="text-muted">Fruits</small>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            
+                  <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                      <img class="card-img-top" src="../../../assets/client-side-img/vp1.jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-text">Fresh Vegetable for immune body.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/vegetables" routerLinkActive="true" >Vegetables</a>
+                            
+                          </div>
+                          <small class="text-muted">Vegetables</small>
+                        </div>
+                      </div>
+                    </div>
+                    </div> 
+            
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                          <img class="card-img-top" src="../../../assets/client-side-img/dp1.jpg" alt="Card image cap">
+                          <div class="card-body">
+                            <p class="card-text">Milk And Milk products.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/dairyProducts" routerLinkActive="true" >Milk Products</a>
+                                
+                                
+                              </div>
+                              <small class="text-muted">Milk Products</small>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                </div> <!-- banner-->
+
+
+
+
+
+
+
+            <!-- /.row -->
+            <br>
+            <hr>
+            <h2 class="text-center text-secondary"><a routerLink="/fruits" routerLinkActive="true"> Fresh Fruits</a></h2>
+            <!-- Here section for Dairy product-->
+            <div class="row card-group">
+                <div class="mx-1 my-3"  *ngFor="let fruit of fruits; let i=index">
+                    <div class="card" style="width: 17rem;">  
+                        <img class="card-img-top" src="./../../../assets/client-side-img/fruits/{{fruit.imgSrc}}" alt="Card image cap">            
+                        <!-- <h3>{{fruit.name}}</h3> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{fruit.name}}</h5>
+                            <p class="card-text">{{fruit.category}}</p>
+                          </div>
+                        <!--               
+                        <span>Quantity:{{fruit.quantity}} <br>
+                            Rs:{{fruit.cost}}</span>                 -->
+            
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Quantity: per {{fruit.quantity}} {{fruit.scale}}</li>
+                                <li class="list-group-item">Rs:{{fruit.productCost}}</li>
+                                <li class="list-group-item"> <span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="fruitQuantity[i]" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{fruit.productCost*fruitQuantity[i]}}"  disabled ngModel></span> </li>
+                              </ul>
+            
+            
+                        <!-- <input name="text" [(ngModel)]="quantity[i]" >
+                         <input type="button" class="btn btn-success" value="Cart" (click)="addToCart(i,fruit)"> -->
+            
+                        
+                            <button class="btn btn-success"  (click)="addToCart(i,fruit)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                              </svg>
+                              </button>
+                        
+            
+            
+                    </div>
+                </div> 
+                </div>
+
+
+
+
+            <hr>
+            <hr>
+            <h2 class="text-center text-secondary"><a routerLink="/vegetables" routerLinkActive="true"> Fresh Vegetables</a></h2>
+            <!-- Here section for Dairy product-->
+            <div class="row card-group">
+                <div class="mx-1 my-3"  *ngFor="let vegetable of vegetables; let i=index">
+                    <div class="card" style="width: 17rem;">  
+                        <img class="card-img-top" src="./../../../assets/client-side-img/vegetables/{{vegetable.imgSrc}}" alt="Card image cap">
+                        <!-- <h3>{{vegetable.name}}</h3> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{vegetable.name}}</h5>
+                            <p class="card-text">{{vegetable.category}}</p>
+                          </div>
+                        <!--               
+                        <span>Quantity:{{vegetable.quantity}} <br>
+                            Rs:{{vegetable.cost}}</span>                 -->
+            
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Quantity: per {{vegetable.quantity}} {{vegetable.scale}}</li>
+                                <li class="list-group-item">Rs:{{vegetable.productCost}}</li>
+                                <li class="list-group-item"> <span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="vegetableQuantity[i]" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{vegetable.productCost*vegetableQuantity[i]}}"  disabled ngModel></span> </li>
+                              </ul>
+            
+            
+                        <!-- <input name="text" [(ngModel)]="quantity[i]" >
+                         <input type="button" class="btn btn-success" value="Cart" (click)="addToCart(i,vegetable)"> -->
+            
+                        
+                            <button class="btn btn-success"  (click)="addToCart(i,vegetable)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                              </svg>
+                              </button>
+                        
+            
+            
+                    </div>
+                </div> 
+                </div>
+
+
+
+            <hr>
+            <hr>
+
+            <h2 class="text-center text-secondary"><a routerLink="/dairyProducts" routerLinkActive="true"> Milk Products</a></h2>
+            <!-- Here section for Dairy product-->
+            <div class="row card-group">
+                <div class="mx-1 my-3"  *ngFor="let fruit of milkProducts; let i=index">
+                    <div class="card" style="width: 17rem;">  
+                        <img class="card-img-top" src="./../../../assets/client-side-img/milk_products/{{fruit.imgSrc}}" alt="Card image cap">            
+                        <!-- <h3>{{fruit.name}}</h3> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{fruit.name}}</h5>
+                            <p class="card-text">{{fruit.category}}</p>
+                          </div>
+                        <!--               
+                        <span>Quantity:{{fruit.quantity}} <br>
+                            Rs:{{fruit.cost}}</span>                 -->
+            
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Quantity: per {{fruit.quantity}} {{fruit.scale}}</li>
+                                <li class="list-group-item">Rs:{{fruit.productCost}}</li>
+                                <li class="list-group-item"> <span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="quantity[i]" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{fruit.cost*quantity[i]}}"  disabled ngModel></span> </li>
+                              </ul>
+            
+            
+                        <!-- <input name="text" [(ngModel)]="quantity[i]" >
+                         <input type="button" class="btn btn-success" value="Cart" (click)="addToCart(i,fruit)"> -->
+            
+                        
+                            <button class="btn btn-success"  (click)="addToCart(i,fruit)">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                              </svg>
+                              </button>
+                        
+            
+            
+                    </div>
+                </div> 
+                </div>
+
+  
+
+
+
+
+
+        </div>
+        <!-- /.col-lg-12 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>

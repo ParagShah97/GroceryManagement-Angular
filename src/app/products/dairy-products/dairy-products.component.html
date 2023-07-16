@@ -1,0 +1,38 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb primary-color">
+      <li class="breadcrumb-item"><a class="white-text" routerLink="/clientHome" routerLinkActive="true">Home</a></li>
+      <li class="breadcrumb-item active">Dairy Products</li>
+    </ol>
+  </nav>
+<div class="row card-group">
+    <div class="mx-3 my-5"  *ngFor="let dairyProduct of dairyProducts; let i=index">
+        <div class="card" style="width: 18rem;">  
+            <img class="card-img-top" src="./../../../assets/client-side-img/milk_products/{{dairyProduct.imgSrc}}" alt="Card image cap">            
+            <!-- <h3>{{dairyProduct.name}}</h3> -->
+            <div class="card-body">
+                <h5 class="card-title">{{dairyProduct.name}}</h5>
+                <p class="card-text">{{dairyProduct.category}}</p>
+              </div>
+<!--               
+            <span>Quantity:{{dairyProduct.quantity}} <br>
+                Rs:{{dairyProduct.cost}}</span>                 -->
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Quantity:per {{dairyProduct.quantity}} {{dairyProduct.scale}}</li>
+                    <li class="list-group-item">Rs:{{dairyProduct.cost}}</li>
+                    <li class="list-group-item"> <span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="quantity[i]" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{dairyProduct.cost*quantity[i]}}"  disabled ngModel></span> </li>
+                  </ul>
+
+
+            <!-- <input name="text" [(ngModel)]="quantity[i]" >
+             <input type="button" class="btn btn-success" value="Cart" (click)="addToCart(i,dairyProduct)"> -->
+
+             <div class="card-body">
+                <input type="button" class="btn btn-success" value="Add to Cart" (click)="addToCart(i,dairyProduct)">
+            </div>
+
+
+        </div>
+    </div> 
+<hr>
+     

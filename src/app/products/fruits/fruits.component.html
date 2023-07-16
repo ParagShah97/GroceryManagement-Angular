@@ -1,0 +1,42 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb primary-color">
+      <li class="breadcrumb-item"><a class="white-text" routerLink="/clientHome" routerLinkActive="true">Home</a></li>
+      <li class="breadcrumb-item active">Fruits</li>
+    </ol>
+  </nav> 
+
+ 
+
+ <div class="row card-group">
+    <div class="mx-3 my-5"  *ngFor="let fruit of fruits; let i=index">
+        <div class="card" style="width: 18rem;">  
+            <img class="card-img-top" src="./../../../assets/client-side-img/fruits/{{fruit.imgSrc}}" alt="Card image cap">            
+            <!-- <h3>{{fruit.name}}</h3> -->
+            <div class="card-body">
+                <h5 class="card-title">{{fruit.name}}</h5>
+                <p class="card-text">{{fruit.category}}</p>
+              </div>
+            <!--               
+            <span>Quantity:{{fruit.quantity}} <br>
+                Rs:{{fruit.cost}}</span>                 -->
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Quantity: per {{fruit.quantity}} {{fruit.scale}}</li>
+                    <li class="list-group-item">Rs:{{fruit.cost}}</li>
+                    <li class="list-group-item"> <span class="row"><input type="number"  name="quantity" placeholder="quantity"  [(ngModel)]="quantity[i]" > <input type="text" name="totalCost" placeholder="Total Cost" size="5" value="{{fruit.cost*quantity[i]}}"  disabled ngModel></span> </li>
+                  </ul>
+
+
+            <!-- <input name="text" [(ngModel)]="quantity[i]" >
+             <input type="button" class="btn btn-success" value="Cart" (click)="addToCart(i,fruit)"> -->
+
+             <div class="card-body">
+                <input type="button" class="btn btn-success" value="Add to Cart" (click)="addToCart(i,fruit)">
+            </div>
+
+
+        </div>
+    </div> 
+    </div>
+<hr>
+    
